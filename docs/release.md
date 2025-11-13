@@ -42,8 +42,7 @@ When KDM is being released for a new minor version of Rancher (e.g. `v2.10.0`, `
 + Update the [Daily Released Version Check](../.github/workflows/daily-version-check.yml) to include the new release line pair in the matrix, so the cron job will check versions for this new release line.
   + Note that GitHub runs scheduled workflows (cron jobs) only on the **default branch**, which means changes in this branch will not take effect until it becomes the default branch of the repository.
   + You can always manually trigger the workflow from the **Actions** tab in the GitHub UI.
-+ The `release-v2.x` branch will not exist yet. To ensure that all versions are correctly included, raise a preview PR against the prior release branch (e.g `dev-v2.10` against `release-v2.9`). **Do not merge this PR**
-   + Example: https://github.com/rancher/kontainer-driver-metadata/pull/1552
++ The `release-v2.x` branch will not exist yet. To ensure that all versions are correctly included, compare the new dev branch against the prior release branch (e.g `dev-v2.10` against `release-v2.9`). Be aware that using Github to compare branches will use the ["three dot"](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons) comparison by default. You likely want a "two dot" comparison.
 
 Once these checks are complete, creating the KDM release for the new minor version is as simple as creating the new `release-v2.x` branch based off of the corresponding `dev-v2.x` branch and pushing it to Github.
 
